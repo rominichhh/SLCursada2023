@@ -7,6 +7,11 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/primary_layout"
+        />
+
     <TextView
         android:id="@+id/textoNota1"
         android:layout_width="match_parent"

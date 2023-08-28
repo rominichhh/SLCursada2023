@@ -1,11 +1,15 @@
 package com.example.examenescursada2023
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var etNota2: EditText
     lateinit var btnPromedio: Button
     lateinit var tvResultado: TextView
+    lateinit var toolbar: Toolbar
 
     // Funcion que se ejecuta al iniciar un Activity
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,6 +43,23 @@ class MainActivity : AppCompatActivity() {
             // Lo asigno al lugar correspondiente
             tvResultado.text = promedio.toString()
         }
+
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar!!.title = resources.getString(R.string.titulo)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == R.id.item_listado){
+            val intentListado = Intent(this, ListadoExamenesActivity::class.java)
+            startActivity(intentListado)
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun saludarUsuario() {

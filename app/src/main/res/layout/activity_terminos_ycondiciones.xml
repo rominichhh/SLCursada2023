@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TerminosYCondicionesActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:text="Terminos y Condiciones"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:textSize="16sp"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pulvinar nibh sed viverra elementum. Phasellus sit amet ipsum elit. Praesent augue diam, placerat nec venenatis sed, ullamcorper a sapien. Aliquam tincidunt placerat dolor id vulputate. In maximus ante eu vehicula ullamcorper. Nullam dictum accumsan ultrices. Duis vitae commodo ipsum, nec commodo sapien. Sed luctus, odio sed facilisis viverra, augue mauris fermentum tellus, non convallis turpis velit quis turpis. Sed eu elit quam. Sed aliquet porttitor ligula, eget cursus orci faucibus nec. Vivamus tincidunt, metus ac bibendum placerat, est arcu venenatis ipsum, a feugiat elit est id libero. In hac habitasse platea dictumst. Nunc consequat efficitur interdum. Curabitur sed velit ac sem luctus faucibus. Nulla ut ullamcorper orci. Ut facilisis molestie ultrices. Duis ex eros, vulputate eu augue eu, maximus cursus velit. Vivamus nec odio id sapien cursus gravida. Sed lobortis massa vitae efficitur sodales. Nullam hendrerit massa ut odio pellentesque ultrices id a arcu. Cras mollis dapibus enim, rhoncus vestibulum diam lacinia ut. Quisque vel ligula libero. In blandit commodo diam, vitae ornare metus pulvinar in. Mauris quis arcu mauris. Nam non odio ac nibh mattis pulvinar a a massa. Quisque non risus tortor. Quisque gravida magna ac lacus mollis, non ultrices tellus laoreet. Vestibulum non purus sed nulla scelerisque pulvinar lacinia nec dolor. Cras porttitor faucibus purus quis auctor. Suspendisse placerat consequat tellus, quis tincidunt diam. Suspendisse a iaculis tellus. Mauris aliquam tellus ut nibh mattis faucibus. Nam sit amet vestibulum elit. Cras lacus nisi, porta in lacus vehicula, elementum semper mi. Quisque sodales libero quis nunc interdum ultricies. Proin laoreet cursus libero. Aenean ut tempus tellus. Etiam vitae nisl semper, tempus sapien ut, cursus nisl. Cras consectetur mattis est in lobortis. Maecenas sit amet dui mattis, bibendum diam nec, tincidunt erat. Praesent ac magna et dui elementum vehicula sit amet ac mi. Ut pulvinar ante ac sapien pellentesque sodales. Quisque id tellus vel lacus dictum rutrum quis id leo. Sed dapibus tellus id dignissim tincidunt. Suspendisse sed vehicula leo. Mauris tempus, est ut tempus rhoncus, nunc sapien aliquam leo, faucibus hendrerit sapien lectus vitae tellus. Nullam non sollicitudin metus, et faucibus ipsum. Sed ut lectus sed metus posuere molestie vitae at magna. Vivamus sit amet magna nunc. In gravida vulputate scelerisque. Duis vel tempor leo, vitae lobortis libero. Aenean convallis laoreet consectetur. Ut ut nisi quis diam pharetra aliquam quis vitae nisi. Proin efficitur nulla ligula. Pellentesque ut ipsum vitae magna scelerisque dapibus non sed ipsum. Aliquam at magna egestas, ultricies tellus a, vehicula purus. Duis dictum risus ac arcu hendrerit egestas. Morbi aliquam arcu erat, ut ornare est semper ac. Ut urna dolor, congue vel diam non, vulputate suscipit erat. Vestibulum aliquam nisi sit amet nibh sollicitudin molestie nec eget tortor. Pellentesque massa nisl, placerat vel efficitur eget, convallis sed velit. Fusce dictum rutrum feugiat. Aenean finibus risus ut neque volutpat, vitae porttitor urna finibus. Fusce sodales, quam vitae sodales venenatis, orci sem semper libero, ultricies condimentum massa magna ac massa. Proin ultrices commodo metus, eu congue leo auctor rhoncus."
+            />
+    </ScrollView>
+    <Button
+        android:id="@+id/btn_aceptarTerminos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Aceptar"
+        />
+</LinearLayout>

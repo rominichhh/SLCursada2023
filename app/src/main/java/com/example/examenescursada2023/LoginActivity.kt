@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 
 class LoginActivity : AppCompatActivity() {
 
@@ -16,6 +17,7 @@ class LoginActivity : AppCompatActivity() {
     lateinit var cbRecordar: CheckBox
     lateinit var btnRegistrar: Button
     lateinit var btnIniciar: Button
+    lateinit var toolbar: Toolbar
 
     // Funcion que se ejecuta al iniciar un Activity
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,11 +30,16 @@ class LoginActivity : AppCompatActivity() {
         cbRecordar = findViewById(R.id.cbRecordar)
         btnIniciar = findViewById(R.id.botonIniciar)
         btnRegistrar = findViewById(R.id.botonRegistrar)
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar!!.title = resources.getString(R.string.titulo)
 
         //Agregamos funcionalidad al Boton
         btnRegistrar.setOnClickListener {
             // Mostramos un mensaje
-            Toast.makeText(this, "Registrar Usuario", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(this, "Registrar Usuario", Toast.LENGTH_SHORT).show()
+            var intentTerminos = Intent(this, TerminosYCondicionesActivity::class.java)
+            startActivity(intentTerminos)
         }
 
         //Agregamos funcionalidad al Boton

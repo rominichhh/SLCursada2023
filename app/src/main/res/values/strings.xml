@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">ExamenesCursada2023</string>
+    <string name="titulo">Mis Examenes</string>
+    <string name="boton_listado">Listado Examenes</string>
+    <string name="boton_agregar">Agregar Examen</string>
 </resources>
