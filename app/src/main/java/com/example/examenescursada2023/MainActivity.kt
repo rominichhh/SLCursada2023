@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
         // Reviso que efectivamente tenga datos
         if(bundle != null){
             // Obtengo el dato especifico
-            var usuario = bundle?.getString("nombre")
+            var usuario = bundle?.getString(resources.getString(R.string.nombre_usuario))
             // Muestro el mensaje
             Toast.makeText(this, "Bienvenido/a $usuario", Toast.LENGTH_SHORT).show()
         }

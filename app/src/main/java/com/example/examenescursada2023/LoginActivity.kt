@@ -3,6 +3,7 @@ package com.example.examenescursada2023
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
@@ -30,6 +31,17 @@ class LoginActivity : AppCompatActivity() {
         cbRecordar = findViewById(R.id.cbRecordar)
         btnIniciar = findViewById(R.id.botonIniciar)
         btnRegistrar = findViewById(R.id.botonRegistrar)
+
+        var preferencias = getSharedPreferences(resources.getString((R.string.sp_credenciales)), MODE_PRIVATE)
+        var usuarioGuardado = preferencias.getString(resources.getString(R.string.nombre_usuario), "").toString()
+        var passwordGuardado = preferencias.getString(resources.getString(R.string.password_usuario), "").toString()
+
+        if(usuarioGuardado!= "" && passwordGuardado!= ""){
+
+            Log.i("SP", usuarioGuardado + " " + passwordGuardado)
+            starMainActivity(usuarioGuardado)
+        }
+
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar!!.title = resources.getString(R.string.titulo)
@@ -47,23 +59,32 @@ class LoginActivity : AppCompatActivity() {
             var mensaje = "Iniciar Sesion"
             // Obtenemos el dato que se ingreso en la vista
             var nombreUsuario = etUsuario.text.toString()
-            if(nombreUsuario.isEmpty() || etPass.text.toString().isEmpty()){
+            var passwordUsuario = etPass.text.toString()
+
+            if(nombreUsuario.isEmpty() || passwordUsuario.isEmpty()){
                 mensaje+= " - Faltan Datos"
             }else {
                 mensaje+= " - Datos OK"
                 // Verificamos si esta tildado el CechBox
-                if(cbRecordar.isChecked)
-                    mensaje+= "- Recordar Usuario"
+                if(cbRecordar.isChecked) {
+                    var preferencias = getSharedPreferences(resources.getString((R.string.sp_credenciales)), MODE_PRIVATE)
+                    preferencias.edit().putString(resources.getString(R.string.nombre_usuario), nombreUsuario)
+                    preferencias.edit().putString(resources.getString(R.string.password_usuario), passwordUsuario)
+                }
 
-                // Indicamos a que pantalla queremos ir
-                val intentMain = Intent(this, MainActivity::class.java)
-                // Agregamos datos que queremos pasar a la proxima pantalla
-                intentMain.putExtra("nombre", nombreUsuario)
-                // Cambiamos de pantalla
-                startActivity(intentMain)
-                // Eliminamos la Activity actual para sacarla de la Pila
-                finish()
+                starMainActivity(nombreUsuario)
             }
         }
+    }
+
+    private fun starMainActivity(usuarioGuardado: String) {
+        // Indicamos a que pantalla queremos ir
+        val intentMain = Intent(this, MainActivity::class.java)
+        // Agregamos datos que queremos pasar a la proxima pantalla
+        intentMain.putExtra(resources.getString(R.string.nombre_usuario), usuarioGuardado)
+        // Cambiamos de pantalla
+        startActivity(intentMain)
+        // Eliminamos la Activity actual para sacarla de la Pila
+        finish()
     }
 }
