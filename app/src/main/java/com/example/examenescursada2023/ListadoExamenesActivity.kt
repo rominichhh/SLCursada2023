@@ -40,8 +40,10 @@ class ListadoExamenesActivity : AppCompatActivity() {
     }
     private fun getExamenes(): MutableList<Examen> {
         var examenes: MutableList<Examen> = ArrayList()
-        examenes.add(Examen(1, "Ingenieria de Software 1", "2022-04-05"))
-        examenes.add(Examen(2, "Algoritmos y Estructuras de Datos", "2022-04-07"))
+        var bdd = AppDatabase.getDatabase(this)
+        examenes.addAll(bdd.examenDao().getAll())
+        //examenes.add(Examen("Ingenieria de Software 1", "2022-04-05"))
+        /*examenes.add(Examen(2, "Algoritmos y Estructuras de Datos", "2022-04-07"))
         examenes.add(Examen(3, "Prueba de Software", "2022-04-08"))
         examenes.add(Examen(4, "Matematica", "2022-04-10"))
         examenes.add(Examen(5, "Ingenieria de Software 1", "2022-04-05"))
@@ -57,7 +59,7 @@ class ListadoExamenesActivity : AppCompatActivity() {
         examenes.add(Examen(15, "Ingenieria de Software 1", "2022-04-05"))
         examenes.add(Examen(16, "Algoritmos y Estructuras de Datos", "2022-04-07"))
         examenes.add(Examen(17, "Prueba de Software", "2022-04-08"))
-        examenes.add(Examen(18, "Matematica", "2022-04-10"))
+        examenes.add(Examen(18, "Matematica", "2022-04-10"))*/
         return examenes
 
     }

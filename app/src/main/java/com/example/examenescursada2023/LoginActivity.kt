@@ -33,13 +33,11 @@ class LoginActivity : AppCompatActivity() {
         btnRegistrar = findViewById(R.id.botonRegistrar)
 
         var preferencias = getSharedPreferences(resources.getString((R.string.sp_credenciales)), MODE_PRIVATE)
-        var usuarioGuardado = preferencias.getString(resources.getString(R.string.nombre_usuario), "").toString()
-        var passwordGuardado = preferencias.getString(resources.getString(R.string.password_usuario), "").toString()
+        var usuarioGuardado = preferencias.getString(resources.getString(R.string.nombre_usuario), "")
+        var passwordGuardado = preferencias.getString(resources.getString(R.string.password_usuario), "")
 
-        if(usuarioGuardado!= "" && passwordGuardado!= ""){
-
-            Log.i("SP", usuarioGuardado + " " + passwordGuardado)
-            starMainActivity(usuarioGuardado)
+        if(usuarioGuardado!= null && passwordGuardado!= null){
+            startMainActivity(usuarioGuardado)
         }
 
         toolbar = findViewById(R.id.toolbar)
@@ -68,16 +66,16 @@ class LoginActivity : AppCompatActivity() {
                 // Verificamos si esta tildado el CechBox
                 if(cbRecordar.isChecked) {
                     var preferencias = getSharedPreferences(resources.getString((R.string.sp_credenciales)), MODE_PRIVATE)
-                    preferencias.edit().putString(resources.getString(R.string.nombre_usuario), nombreUsuario)
-                    preferencias.edit().putString(resources.getString(R.string.password_usuario), passwordUsuario)
+                    preferencias.edit().putString(resources.getString(R.string.nombre_usuario), nombreUsuario).apply()
+                    preferencias.edit().putString(resources.getString(R.string.password_usuario), passwordUsuario).apply()
                 }
 
-                starMainActivity(nombreUsuario)
+                startMainActivity(nombreUsuario)
             }
         }
     }
 
-    private fun starMainActivity(usuarioGuardado: String) {
+    private fun startMainActivity(usuarioGuardado: String) {
         // Indicamos a que pantalla queremos ir
         val intentMain = Intent(this, MainActivity::class.java)
         // Agregamos datos que queremos pasar a la proxima pantalla

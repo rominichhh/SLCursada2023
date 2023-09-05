@@ -6,4 +6,5 @@
     <string name="nombre_usuario">NOMBRE</string>
     <string name="password_usuario">PASSWORD</string>
     <string name="sp_credenciales">SP_CREDENCIALES</string>
+    <string name="volver">Volver</string>
 </resources>
